@@ -1,0 +1,11 @@
+MVP Archtechture: A minimum of 80% of the code should be automatically tested when using a Model View Presenter with layered design to isolate each layer with dependency injunction to test it:
+Screen Shot 2023-09-16 at 10 02 19 PM
+Using protocol-oriented programming, we can create automation tests that can run/execute at the test level, staging level, and production level by using an environment object for the dependency injection.
+
+Each layer is isolated and tested using Stub and Mock.
+
+XC unit test
+
+XC UI test
+
+Pattern used: • Builder Pattern - building http request object • Strategy Pattern - API/CXS network strategy • Singleton Pattern • Component Pattern
