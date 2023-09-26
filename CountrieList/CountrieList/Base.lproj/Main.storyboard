@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cld-4z-MdV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cld-4z-MdV">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,29 +17,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please click Display button to fatch and display countrie list." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJJ-ke-jk2">
-                                <rect key="frame" x="25" y="325" width="369" height="61"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="61" id="BhJ-c4-SWU"/>
-                                    <constraint firstAttribute="height" constant="61" id="SPl-km-LOk"/>
-                                    <constraint firstAttribute="width" constant="369" id="niO-42-fey"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJJ-ke-jk2">
+                                <rect key="frame" x="25" y="329" width="369" height="51"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Please click Display button to fetch and display countries list.">
+                                        <attributes>
+                                            <font key="NSFont" metaFont="system" size="23"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYe-1h-M75">
-                                <rect key="frame" x="20" y="394" width="374" height="61"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="374" id="XTQ-lD-hBR"/>
-                                    <constraint firstAttribute="height" constant="61" id="wre-UU-K41"/>
-                                </constraints>
+                                <rect key="frame" x="20" y="388" width="374" height="81"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Display">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                     </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="39"/>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="56"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="onDisplayTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BU7-Dn-4Wi"/>
@@ -46,20 +44,20 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
                         <constraints>
                             <constraint firstItem="SJJ-ke-jk2" firstAttribute="trailing" secondItem="eYe-1h-M75" secondAttribute="trailing" id="3wl-ea-Gda"/>
+                            <constraint firstItem="SJJ-ke-jk2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="237" id="5eM-kp-jGb"/>
                             <constraint firstItem="SJJ-ke-jk2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="DA1-us-40F"/>
                             <constraint firstItem="SJJ-ke-jk2" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Vih-17-WUm"/>
                             <constraint firstItem="eYe-1h-M75" firstAttribute="top" secondItem="SJJ-ke-jk2" secondAttribute="bottom" constant="8" id="ckJ-KY-vdX"/>
-                            <constraint firstItem="SJJ-ke-jk2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="237" id="fbx-Xh-xNF"/>
                             <constraint firstItem="eYe-1h-M75" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ojx-18-cOa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SJJ-ke-jk2" secondAttribute="trailing" constant="20" id="zO2-Ui-nVM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="f2y-xd-TJe"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="heightConstraint" destination="SPl-km-LOk" id="wyy-cf-5b7"/>
                         <outletCollection property="IBConstraints" destination="3wl-ea-Gda" collectionClass="NSMutableArray" id="X0E-f8-8kg"/>
                     </connections>
                 </viewController>
@@ -73,7 +71,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cld-4z-MdV" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="y7V-1g-icQ">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -94,7 +92,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="erw-dD-lBV">
-                                <rect key="frame" x="5" y="45" width="404" height="820"/>
+                                <rect key="frame" x="5" y="49" width="404" height="816"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -119,6 +117,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

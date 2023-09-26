@@ -20,23 +20,68 @@ class ViewController: UIViewController, ViewController_ViewControllerProtocol {
     @IBOutlet var IBConstraints: [NSLayoutConstraint]!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
+    var getStatusBarOrientation: UIInterfaceOrientation? {
+        get {
+            guard let firstScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+                return .portrait
+            }
+            guard let firstWindow = firstScene.windows.first else {
+                return .portrait
+            }
+            
+            guard let orientation = firstWindow.windowScene?.interfaceOrientation else {
+                #if DEBUG
+                fatalError("Could not obtain UIInterfaceOrientation from a valid windowScene")
+                #else
+                return nil
+                #endif
+            }
+            return orientation
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         presenter = ViewController_Presenter(self)
         presenter?.fatchCountrieListsData()
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.orientationChanged),
-                                               name: UIApplication.didChangeStatusBarOrientationNotification,
-                                               object: nil)
 
         applyPortraitConstraints()
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        // Put code to be run BEFORE the rotation here...
+
+        coordinator.animate(alongsideTransition: nil) { _ in
+            let deviceOrientation = self.getStatusBarOrientation
+
+            switch deviceOrientation {
+            case .portrait:
+                fallthrough
+            case .portraitUpsideDown:
+                print("Portrait")
+                self.applyPortraitConstraints()
+
+            case .landscapeLeft:
+                fallthrough
+            case .landscapeRight:
+                print("landscape")
+                self.applyLandscapeConstraints()
+            case .unknown:
+                print("unknown orientation")
+            case .none:
+                print("unknown orientation")
+            @unknown default:
+                print("unknown case in orientation change")
+            }
+        }
+    }
+    
     @objc func orientationChanged(notification: NSNotification) {
-            let deviceOrientation = UIApplication.shared.statusBarOrientation
+            let deviceOrientation = getStatusBarOrientation
 
             switch deviceOrientation {
             case .portrait:
@@ -51,6 +96,8 @@ class ViewController: UIViewController, ViewController_ViewControllerProtocol {
                 print("landscape")
                 applyLandscapeConstraints()
             case .unknown:
+                print("unknown orientation")
+            case .none:
                 print("unknown orientation")
             @unknown default:
                 print("unknown case in orientation change")
