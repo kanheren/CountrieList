@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CountrieListViewController: UIViewController {
+class CountrieListViewController: BaseViewController {
 
     @IBOutlet weak var CountrieListTableView: UITableView!
     
@@ -16,8 +16,10 @@ class CountrieListViewController: UIViewController {
     
     //  filtered Countrie Lists by search results
     var filteredCountrieLists: [CountrieListModel] = []
+    
     // Search controller
     let searchController = UISearchController(searchResultsController: nil)
+    
     // text entered
     var isSearchBarEmpty: Bool {
       return searchController.searchBar.text?.isEmpty ?? true
@@ -36,6 +38,9 @@ class CountrieListViewController: UIViewController {
         
         // Hide back button
         navigationItem.setHidesBackButton(true, animated: true)
+        
+        setUpNavigationBar()
+        setBackgroundImage_Gradient_Light(view: self.view)
         
         // Show home button
         createNavigationBarButton()
@@ -123,7 +128,6 @@ extension CountrieListViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellId = "CountrieListTableViewCell"
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? CountrieListTableViewCell {
-            //let countrieListDataModel = CountrieLists[indexPath.row]
             let countrieListDataModel: CountrieListModel
             if isFiltering {
                 countrieListDataModel = filteredCountrieLists[indexPath.row]

@@ -11,7 +11,7 @@ protocol ViewController_ViewControllerProtocol: AnyObject {
     func countrieListResponse(countrieListResponse: [CountrieList.Response])
 }
 
-class ViewController: UIViewController, ViewController_ViewControllerProtocol {
+class ViewController: BaseViewController, ViewController_ViewControllerProtocol {
 
     var countrieListArray = [CountrieList.Response]()
     var presenter: ViewController_PresenterProtocol?
@@ -48,6 +48,9 @@ class ViewController: UIViewController, ViewController_ViewControllerProtocol {
         presenter?.fatchCountrieListsData()
 
         applyPortraitConstraints()
+        
+        setUpNavigationBar()
+        setBackgroundImage_Gradient_Light(view: self.view)
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
